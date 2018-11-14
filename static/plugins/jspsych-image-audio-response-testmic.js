@@ -189,7 +189,7 @@ jsPsych.plugins["image-audio-response-testmic"] = (function() {
         // TODO: Pause 2s before recording.]
         let light = document.querySelector('#jspsych-image-audio-response-audio-container');
         light.innerHTML = trial.preRecordingLight;
-        setTimeout(function(){startRecording()}, 50);
+        setTimeout(function(){startRecording()}, 3000);
         console.log("-------->count down to 3 secs to start recording");
         //startRecording();
 
