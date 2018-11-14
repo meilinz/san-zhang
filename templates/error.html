@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Psychology Experiment - Error</title>
+        <link rel=stylesheet href="/static/css/bootstrap.min.css" type="text/css">
+        <link rel=stylesheet href="/static/css/style.css" type="text/css">
+    </head>
+    <body>
+        <div id="container-error">
+
+            <div id="error">
+                <h1>抱歉，出错了。</h1>
+                <hr>
+
+                <div class="alert alert-danger">
+                {% if errornum == 1008 %}
+                    
+                        <p>抱歉，我们的记录表明您已经试图完成这个任务，但在完成之前退出。</p>
+                        <p>因为这是一个心理学实验，所以您只能完成一次。</p>
+
+                {% elif errornum == 1010 %}
+
+                        <p>抱歉，我们的记录表明您已经完成（或试图完成）此任务。</p>
+                        <p>因为这是一个心理学实验，所以您只能完成一次。</p>
+
+                {% else %}
+
+                        <p>Sorry, there was an unexpected error in our processing of your HIT.<p>
+
+                {% endif %}
+                        <p>
+                            If you would like to receive partial compensation or feel you
+                            have reached this page in error, please email
+                            <a href="mailto:{{contact_address}}">{{contact_address}}</a>
+                            and send the following information:
+                        </p>
+                        <p>
+                            Error: #{{ errornum }}<br>
+                            {% if hitId %} HITID: #{{ hitId }}<br> {% endif %}
+                            {% if assignId %}AssignmentId: #{{ assignId }}<br> {% endif %}
+                            {% if workerId %} WorkerId: #{{ workerId }}<br> {% endif %}
+                        </p>
+
+                </div>
+
+                <hr>
+                <h3>Our sincere apologies!</h3>
+            </div>
+        </div>
+    </body>
+</html>
