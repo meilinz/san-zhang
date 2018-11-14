@@ -193,7 +193,9 @@
         type:'instructions',
         pages: ['麦克风测试结束。</br> 如果您能在录音回放中听到自己的声音，请点击下一页进入练习阶段。</br>\
         在练习中，我们将不提供录音回放，您做的每一题依然会被录音，请放心回答。</br>\
-        请在录音指示灯闪烁（显示“录音中”）的时候开始讲话。'],
+        每个图片出现后，您有3秒的时间准备录音（显示“准备录音”）。</br>\
+        <strong>请在录音指示灯闪烁（显示“录音中”）的时候才开始讲话。</strong> </br>\
+        如果录音还没开始就讲话，结果会不完整。'],
         show_clickable_nav: true
     };
     
@@ -201,7 +203,7 @@
         type: 'image-audio-response',
         stimulus: 'static/img/MisMatch_0062_pumpkin_2.png',
         postprocessing: saveFunction,
-        prompt: "<p>请说出图中物品的数量和名称。请在录音指示灯闪烁（显示“录音中”）的时候开始讲话。</p>",
+        prompt: "<p>请说出图中物品的数量和名称。</br> 请在录音指示灯闪烁（显示“录音中”）的时候开始讲话。</p>",
         bufferLength
     };
     
@@ -209,7 +211,7 @@
         type: 'image-audio-response',
         stimulus: 'static/img/Match_0019_tank_4.png',
         postprocessing: saveFunction,
-        prompt: "<p>请说出图中物品的数量和名称。请在录音指示灯闪烁（显示“录音中”）的时候开始讲话。</p>",
+        prompt: "<p>请说出图中物品的数量和名称。</br> 请在录音指示灯闪烁（显示“录音中”）的时候开始讲话。</p>",
         bufferLength
     };
     
@@ -217,15 +219,15 @@
         type: 'image-audio-response',
         stimulus: 'static/img/Match_0038_sewingmachine_3.png',
         postprocessing: saveFunction,
-        prompt: "<p>请说出图中物品的数量和名称。请在录音指示灯闪烁（显示“录音中”）的时候开始讲话。</p>",
+        prompt: "<p>请说出图中物品的数量和名称。</br> 请在录音指示灯闪烁（显示“录音中”）的时候开始讲话。</p>",
         bufferLength
     };
     
     let instruction3 = {
         type:'instructions',
-        pages: ['练习结束。</br> 请点击下一页进入正式实验。实验将持续9分钟左右，中途请勿离开。</br>\
+        pages: ['练习结束。</br> 请点击下一页进入正式实验。实验将持续12分钟左右，中途请勿离开。</br>\
         在正式实验中，我们将不提供录音回复，您做的每一题依然会被录音，请放心回答。</br>\
-        请在录音指示灯闪烁（显示“录音中”）的时候才开始讲话。'],
+        <strong>请在录音指示灯闪烁（显示“录音中”）的时候才开始讲话。<strong>'],
         show_clickable_nav: true
     };
     
@@ -255,7 +257,7 @@
     let completion_code = {
         type: 'survey-text',
         preamble: completionMessage,
-        questions: [{prompt: '记录代码及截图后，请将以上完成代码复制粘贴到这里，并点击下一页提交。如果没有点击下一页提交，您的数据将没有被记录到数据库。'}]
+        questions: [{prompt: '记录代码及截图后，请将以上完成代码复制粘贴到这里，并点击下一页提交。<strong>如果没有点击下一页提交，您的数据将没有被记录到数据库。</strong>'}]
     }
 
     timeline.push(welcome);
