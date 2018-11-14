@@ -10,8 +10,8 @@
 
     <script src="/static/jspsych.js"></script>
     <script src="/static/plugins/jspsych-html-keyboard-response.js"></script>
-    <script src="/static/plugins/jspsych-image-audio-response-quick.js"></script>
-    <!-- <script src="/static/plugins/jspsych-image-audio-response.js"></script> -->
+    <script src="/static/plugins/jspsych-image-audio-response.js"></script>
+    <!-- <script src="/static/plugins/jspsych-image-audio-response_quick.js"></script> -->
     <script src="/static/plugins/jspsych-image-audio-response-testmic.js"></script>
     <script src="/static/plugins/jspsych-instructions.js"></script>
     <script src="/static/plugins/jspsych-survey-text.js" type="text/javascript"></script>
@@ -127,7 +127,7 @@
         <br/>在实验过程中，您将会被录音。为保证录音兼容性，请使用 Chrome 谷歌浏览器 或 Firefox 火狐浏览器。\
         <br/>如果您现在用的是其他浏览器，请复制粘贴地址栏的链接（包含https），用上述两种浏览器中的一种打开。</p>',
         '在实验正式开始之前，您将先测试麦克风，然后进入练习部分。完成简短的练习后，您将进入实验的主要部分。',
-        '整个实验大约需要10分钟。您的参与是自愿的。如果您同意参加实验，请点击下一页继续。谢谢！'],
+        '整个实验大约需要12-15分钟。您的参与是自愿的。如果您同意参加实验，请点击下一页继续。谢谢！'],
         show_clickable_nav: true
     };
 
@@ -192,43 +192,45 @@
     let instruction2 = {
         type:'instructions',
         pages: ['麦克风测试结束。</br> 如果您能在录音回放中听到自己的声音，请点击下一页进入练习阶段。</br>\
-        在练习中，我们将不提供录音回放，您做的每一题依然会被录音，请放心回答。'],
+        在练习中，我们将不提供录音回放，您做的每一题依然会被录音，请放心回答。</br>\
+        请在录音指示灯闪烁（显示“录音中”）的时候开始讲话。'],
         show_clickable_nav: true
     };
     
     let practice1 = {
-        type: 'image-audio-response-quick',
+        type: 'image-audio-response',
         stimulus: 'static/img/MisMatch_0062_pumpkin_2.png',
         postprocessing: saveFunction,
-        prompt: "<p>请说出图中物品的数量和名称</p>",
+        prompt: "<p>请说出图中物品的数量和名称。请在录音指示灯闪烁（显示“录音中”）的时候开始讲话。</p>",
         bufferLength
     };
     
     let practice2 = {
-        type: 'image-audio-response-quick',
+        type: 'image-audio-response',
         stimulus: 'static/img/Match_0019_tank_4.png',
         postprocessing: saveFunction,
-        prompt: "<p>请说出图中物品的数量和名称</p>",
+        prompt: "<p>请说出图中物品的数量和名称。请在录音指示灯闪烁（显示“录音中”）的时候开始讲话。</p>",
         bufferLength
     };
     
     let practice3 = {
-        type: 'image-audio-response-quick',
+        type: 'image-audio-response',
         stimulus: 'static/img/Match_0038_sewingmachine_3.png',
         postprocessing: saveFunction,
-        prompt: "<p>请说出图中物品的数量和名称</p>",
+        prompt: "<p>请说出图中物品的数量和名称。请在录音指示灯闪烁（显示“录音中”）的时候开始讲话。</p>",
         bufferLength
     };
     
     let instruction3 = {
         type:'instructions',
-        pages: ['练习结束。</br> 请点击下一页进入正式实验。实验将持续5分钟30秒，中途不能暂停。</br>\
-        在正式实验中，我们将不提供录音回复，您做的每一题依然会被录音，请放心回答。'],
+        pages: ['练习结束。</br> 请点击下一页进入正式实验。实验将持续9分钟左右，中途请勿离开。</br>\
+        在正式实验中，我们将不提供录音回复，您做的每一题依然会被录音，请放心回答。</br>\
+        请在录音指示灯闪烁（显示“录音中”）的时候才开始讲话。'],
         show_clickable_nav: true
     };
     
     let test = {
-      type: 'image-audio-response-quick',
+      type: 'image-audio-response',
       stimulus: jsPsych.timelineVariable('stimulus'),
       postprocessing: saveFunction,
       data: jsPsych.timelineVariable('data'),
@@ -253,7 +255,7 @@
     let completion_code = {
         type: 'survey-text',
         preamble: completionMessage,
-        questions: [{prompt: '记录代码及截图后，请将以上完成代码复制粘贴到这里（Witmart/猪八戒用户必填)，并点击下一页提交。如果没有点击下一页提交，您的数据将没有被记录到数据库。'}]
+        questions: [{prompt: '记录代码及截图后，请将以上完成代码复制粘贴到这里，并点击下一页提交。如果没有点击下一页提交，您的数据将没有被记录到数据库。'}]
     }
 
     timeline.push(welcome);
