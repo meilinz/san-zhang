@@ -231,6 +231,9 @@
         show_clickable_nav: true
     };
     
+    let progress_bar = 0;
+    let tick_amount = 0.03;
+
     let test = {
       type: 'image-audio-response',
       stimulus: jsPsych.timelineVariable('stimulus'),
@@ -240,6 +243,8 @@
       bufferLength,
       on_finish: function(){
         psiturk.startTask();
+        progress_bar += tick_amount; //add progress bar in test trials
+        jsPsych.setProgressBar(progress_bar)
       }
 
     }
