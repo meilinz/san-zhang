@@ -232,7 +232,7 @@
     };
     
     let progress_bar = 0;
-    let tick_amount = 0.03;
+    let tick_amount = 0.0175; //(1/n)
 
     let test = {
       type: 'image-audio-response',
@@ -244,7 +244,7 @@
       on_finish: function(){
         psiturk.startTask();
         progress_bar += tick_amount; //add progress bar in test trials
-        jsPsych.setProgressBar(progress_bar)
+        jsPsych.setProgressBar(progress_bar);
       }
 
     }
@@ -284,7 +284,7 @@
 
     jsPsych.init({
         timeline: timeline,
-        show_progress_bar: true,
+        show_progress_bar: false,
         on_finish: function(){
             psiturk.saveData({
                 success: function() { psiturk.completeHIT(); },
