@@ -280,6 +280,7 @@
     jsPsych.init({
         timeline: timeline,
         show_progress_bar: false,
+        show_preload_progress_bar: true, // show preload progress bar
         on_finish: function(){
             psiturk.saveData({
                 success: function() { psiturk.completeHIT(); },
