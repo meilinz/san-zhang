@@ -230,9 +230,6 @@
         <strong>请在录音指示灯闪烁（显示“录音中”）的时候才开始讲话。<strong>'],
         show_clickable_nav: true
     };
-    
-    let progress_bar = 0;
-    let tick_amount = 0.0175; //(1/n)
 
     let test = {
       type: 'image-audio-response',
@@ -243,8 +240,6 @@
       bufferLength,
       on_finish: function(){
         psiturk.startTask();
-        progress_bar += tick_amount; //add progress bar in test trials
-        jsPsych.setProgressBar(progress_bar);
       }
 
     }
