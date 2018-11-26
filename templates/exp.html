@@ -63,7 +63,7 @@
     let test_stimuli = [
         {stimulus: 'static/img/Match_0008_cabbage_2.png'},
         {stimulus: 'static/img/Match_0022_axe_2.png'},
-        {stimulus: 'static/img/Match_0030_sofa_4.png'},
+/*        {stimulus: 'static/img/Match_0030_sofa_4.png'},
         {stimulus: 'static/img/Match_0044_iron_4.png'},
         {stimulus: 'static/img/Match_0055_screwdriver_2.png'},
         {stimulus: 'static/img/Match_0063_mincer_2.png'},
@@ -117,7 +117,7 @@
         {stimulus: 'static/img/Object_0031_hairblower_2.png'},
         {stimulus: 'static/img/Object_0123_printer_4.png'},
         {stimulus: 'static/img/Object_0274_racket_4.png'},
-        {stimulus: 'static/img/Object_0388_bow_4.png'},
+        {stimulus: 'static/img/Object_0388_bow_4.png'},*/
     ]
 
     let welcome = {
@@ -251,14 +251,15 @@
       randomize_order: true
     }
     
-    let code = Math.floor(Math.random()*100000000);
-    let completionMessage = "实验结果已经记录到数据库，您的完成代码是 " + code.toString() + "。\n 请记下这个代码并截图作为您投标的依据。";
+    //let code = Math.floor(Math.random()*100000000);
+    let completionMessage = "实验结果已经记录到数据库，您的完成代码是 " + uniqueId.toString() + "。\n 请记下这个代码并截图(须包含地址栏)作为您投标的依据。";
     
     let completion_code = {
         type: 'survey-text',
         preamble: completionMessage,
-        questions: [{prompt: '记录代码及截图后，请将以上完成代码复制粘贴到这里，并点击下一页提交。<strong>如果没有点击下一页提交，您的数据将没有被记录到数据库。</strong>'}]
-    }
+        questions: [{prompt: '感谢您坚持到现在！请问您在实验中有遇到什么困难或者问题吗？\n 最后，请提交结果。<strong>如果没有点击提交结果，您的数据将没有被记录到数据库。</strong>'}],
+        button_label: "提交结果",
+    }；
 
     timeline.push(welcome);
     timeline.push(age);
