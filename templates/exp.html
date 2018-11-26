@@ -252,12 +252,12 @@
     }
     
     //let code = Math.floor(Math.random()*100000000);
-    let completionMessage = "实验结果已经记录到数据库，您的完成代码是 " + uniqueId.toString() + "。\n 请记下这个代码并截图作为您投标的依据。记得点提交。";
+    let completionMessage = "实验结果已经记录到数据库，您的完成代码是 " + uniqueId.toString() + "。\n 请记下这个代码并截图作为您投标的依据。\n <strong>记得点提交。</strong>";
     
     let completion_code = {
         type: 'survey-text',
         preamble: completionMessage,
-        questions: [{prompt: '请问您在实验中有遇到什么困难或者问题吗？'}],
+        questions: [{prompt: '请问您在实验中有遇到什么困难或者问题吗？如有，请告诉我们。'}],
         button_label: "点击这里提交结果",
     };
 
