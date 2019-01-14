@@ -10,8 +10,8 @@
 
     <script src="/static/jspsych.js"></script>
     <script src="/static/plugins/jspsych-html-keyboard-response.js"></script>
-    <script src="/static/plugins/jspsych-image-audio-response.js"></script>
-    <!-- <script src="/static/plugins/jspsych-image-audio-response_quick.js"></script> -->
+    <!-- <script src="/static/plugins/jspsych-image-audio-response.js"></script> -->
+    <script src="/static/plugins/jspsych-image-audio-response_quick.js"></script>
     <script src="/static/plugins/jspsych-image-audio-response-testmic.js"></script>
     <script src="/static/plugins/jspsych-instructions.js"></script>
     <script src="/static/plugins/jspsych-survey-text.js" type="text/javascript"></script>
@@ -127,7 +127,7 @@
         <br/>在实验过程中，您将会被录音。为保证录音兼容性，请使用 Chrome 谷歌浏览器 或 Firefox 火狐浏览器。\
         <br/>如果您现在用的是其他浏览器，请复制粘贴地址栏的链接（包含https），用上述两种浏览器中的一种打开。</p>',
         '在实验正式开始之前，您将先测试麦克风，然后进入练习部分。完成简短的练习后，您将进入实验的主要部分。',
-        '整个实验大约需要12-15分钟。您的参与是自愿的。如果您同意参加实验，请点击下一页继续。谢谢！'],
+        '整个实验大约需要10分钟。您的参与是自愿的。如果您同意参加实验，请点击下一页继续。谢谢！'],
         show_clickable_nav: true
     };
 
@@ -193,14 +193,13 @@
         type:'instructions',
         pages: ['麦克风测试结束。</br> 如果您能在录音回放中听到自己的声音，请点击下一页进入练习阶段。</br>\
         在练习中，我们将不提供录音回放，您做的每一题依然会被录音，请放心回答。</br>\
-        每个图片出现后，您有3秒的时间准备录音（显示“准备录音”）。</br>\
-        <strong>请在录音指示灯闪烁（显示“录音中”）的时候才开始讲话。</strong> </br>\
-        如果录音还没开始就讲话，结果会不完整。'],
+        <strong>每个图片出现后将立即自动录音（显示“录音中”）。</strong> </br>\
+        每一题录音结束将自动跳转到下一页'],
         show_clickable_nav: true
     };
     
     let practice1 = {
-        type: 'image-audio-response',
+        type: 'image-audio-response-quick',
         stimulus: 'static/img/MisMatch_0062_pumpkin_2.png',
         postprocessing: saveFunction,
         prompt: "<p>请说出图中物品的数量和名称。</br> 请在录音指示灯闪烁（显示“录音中”）的时候开始讲话。</p>",
@@ -208,7 +207,7 @@
     };
     
     let practice2 = {
-        type: 'image-audio-response',
+        type: 'image-audio-response-quick',
         stimulus: 'static/img/Match_0019_tank_4.png',
         postprocessing: saveFunction,
         prompt: "<p>请说出图中物品的数量和名称。</br> 请在录音指示灯闪烁（显示“录音中”）的时候开始讲话。</p>",
@@ -216,7 +215,7 @@
     };
     
     let practice3 = {
-        type: 'image-audio-response',
+        type: 'image-audio-response-quick',
         stimulus: 'static/img/Match_0038_sewingmachine_3.png',
         postprocessing: saveFunction,
         prompt: "<p>请说出图中物品的数量和名称。</br> 请在录音指示灯闪烁（显示“录音中”）的时候开始讲话。</p>",
@@ -225,14 +224,15 @@
     
     let instruction3 = {
         type:'instructions',
-        pages: ['练习结束。</br> 请点击下一页进入正式实验。实验将持续12分钟左右，中途请勿离开。</br>\
+        pages: ['练习结束。</br> 接下来实验将持续8分钟左右，中途请勿离开。</br>\
         在正式实验中，我们将不提供录音回复，您做的每一题依然会被录音，请放心回答。</br>\
-        <strong>请在录音指示灯闪烁（显示“录音中”）的时候才开始讲话。<strong>'],
+        <strong> 每个图片出现后将立即自动录音（显示“录音中”）。<strong> </br>\
+        请点击下一页进入正式实验。'],
         show_clickable_nav: true
     };
 
     let test = {
-      type: 'image-audio-response',
+      type: 'image-audio-response-quick',
       stimulus: jsPsych.timelineVariable('stimulus'),
       postprocessing: saveFunction,
       data: jsPsych.timelineVariable('data'),
@@ -252,7 +252,7 @@
     }
     
     //let code = Math.floor(Math.random()*100000000);
-    let completionMessage = "感谢您参加实验，您的完成代码是 " + uniqueId.toString() + "。\n 请记下这个代码并截图作为您投标的依据。\n <strong>务必点下面提交结果。如果不点击提交结果无效。</strong>";
+    let completionMessage = "感谢您参加实验，您的完成代码是 " + uniqueId.toString() + "。\n 请记下这个代码并截图作为您投标的依据。\n <strong>请务必点击下面提交按钮。如果不点击提交结果无效。</strong>";
     
     let completion_code = {
         type: 'survey-text',
